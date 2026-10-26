@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
-          repository: sh4dow6oy/android_kernel_samsung_r5q
-          ref: auriana
+          repository: sh4dow6oy/TEXT8150
+          ref: android16
           fetch-depth: 1
 
       - name: Install Dependencies
@@ -72,7 +72,7 @@ jobs:
           cd AnyKernel3
           zip -r9 ../Kernel-S10Lite-R5Q-Neutron.zip *
       - name: Upload Flashable Kernel
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Kernel-S10Lite-R5Q
           path: Kernel-S10Lite-R5Q-Neutron.zip
