@@ -130,6 +130,11 @@ endif
 
 ifeq ($(cc-name),clang)
 KBUILD_CFLAGS += $(call cc-disable-warning, asm-operand-widths)
+# Adaugă reguli de compatibilitate pentru toolchain-uri Clang mai noi:
+KBUILD_CFLAGS += $(call cc-disable-warning, deprecated-non-prototype)
+KBUILD_CFLAGS += $(call cc-disable-warning, unused-but-set-variable)
+# Forțează ignorarea flag-urilor de warning necunoscute care dau eroare cu -Werror
+KBUILD_CFLAGS += -Wno-error=unknown-warning-option
 endif
 
 ifeq ($(CONFIG_KASAN_SW_TAGS), y)
